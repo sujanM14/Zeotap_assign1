@@ -37,6 +37,16 @@ public class RuleServiceImpl implements RuleService {
 
         return ruleRepository.save(rule);
     }
+    @Override
+    public Rule combineRules(List<String> rules){
+        String combinedRules = String.join(" ", rules);
+        ASTNode ast=astBuilder.combineRules(rules);
+        Rule rule=new Rule();
+        rule.setRuleString(combinedRules);
+        Map<String,Object> mp=ast.toMap();
+        rule.setAstNode(mp);
+        return ruleRepository.save(rule);
+    }
 
     @Override
     public void delete(String id) {

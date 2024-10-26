@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Zeotap.AST.Model.ASTNode;
 import com.Zeotap.AST.Model.Rule;
 import com.Zeotap.AST.Service.RuleService;
 
@@ -60,5 +61,10 @@ public class RuleController {
     public ResponseEntity<Boolean> evaluateRule(@PathVariable String id, @RequestBody Map<String, String> jsonData) {
         Boolean result = ruleService.evaluateRuleById(id, jsonData);
         return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+    @PostMapping("/combine-rules")
+    public ResponseEntity<Rule> combineRulesController(@RequestBody List<String> rules) {
+        return new ResponseEntity<>( ruleService.combineRules(rules), HttpStatus.OK);
+       
     }
 }

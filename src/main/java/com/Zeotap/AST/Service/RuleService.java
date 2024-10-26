@@ -9,6 +9,7 @@ public interface RuleService {
     // Method to parse an expression and save the created rule
     Rule save(String expression);
 
+    Rule combineRules(List<String> rules );
     // Rule createRule(String expression);
     // Method to delete a rule by its ID
     void delete(String id);
@@ -21,4 +22,6 @@ public interface RuleService {
 
     // Method to evaluate a rule against given JSON data
     Boolean evaluateRuleById(String id, Map<String, String> data);
+
+
 }
