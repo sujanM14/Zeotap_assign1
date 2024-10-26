@@ -37,7 +37,8 @@ To get a local copy up and running follow these simple steps:
 
 4. Configure MongoDB
 5. Ensure your MongoDB server is running and configure the connection details in src/main/resources/application.properties:
-spring.data.mongodb.uri=mongodb://localhost:27017/your_database_name
+       ```bash
+       spring.data.mongodb.uri=mongodb://localhost:27017/your_database_name
 
 ### Run the application
 1. You can run the application using the following command:
