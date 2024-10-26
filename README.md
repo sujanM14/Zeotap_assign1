@@ -26,14 +26,14 @@ To get a local copy up and running follow these simple steps:
 
 ### Clone the repository
 
-```bash
-https://github.com/sujanM14/Zeotap_assign1.git
+    ```bash
+    https://github.com/sujanM14/Zeotap_assign1.git
 
 Navigate to the project directory
 Build the project
 Use Maven to build the project:
-```bash
-mvn clean install
+    ```bash
+    mvn clean install
 
 Configure MongoDB
 Ensure your MongoDB server is running and configure the connection details in src/main/resources/application.properties:
@@ -42,6 +42,6 @@ spring.data.mongodb.uri=mongodb://localhost:27017/your_database_name
 ### Run the application
 You can run the application using the following command:
 
-```bash
-mvn spring-boot:run
+    ```bash
+    mvn spring-boot:run
 
