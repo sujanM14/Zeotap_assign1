@@ -14,19 +14,11 @@ This is a simple 3-tier rule engine application developed using Spring Boot and 
 
 ## Technologies Used
 
-- **Java**: [version]
-- **Spring Boot**: [version]
-- **Maven**: [version]
-- **MongoDB**: [version]
-- **Other Dependencies**: [e.g., Spring Data JPA, Lombok, etc.]
+- **Java**
+- **Spring Boot**
+- **Maven**
+- **MongoDB**
 
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-- JDK [version] installed on your machine.
-- Maven [version] installed on your machine.
-- MongoDB server running on your local machine or accessible remotely.
 
 ## Getting Started
 
