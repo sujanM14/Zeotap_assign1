@@ -35,7 +35,7 @@ To get a local copy up and running follow these simple steps:
 ### Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/rule-engine.git](https://github.com/sujanM14/Zeotap_assign1.git
+https://github.com/sujanM14/Zeotap_assign1.git
 
 Navigate to the project directory
 Build the project
