@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Zeotap.AST.Model.ASTBuilder;
@@ -66,7 +65,7 @@ public class RuleServiceImpl implements RuleService {
        ASTNode node = ASTNode.fromMap(mp); // Convert the map to an ASTNode
 
     // Evaluate the AST node with the provided data
-    Boolean evaluation = ASTBuilder.evaluateNode(node, mp);
+    Boolean evaluation = ASTBuilder.evaluateNode(node,data);
 
     return evaluation;  // Logic for evaluating will go here
     }

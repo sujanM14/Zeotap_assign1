@@ -58,7 +58,7 @@ public class RuleController {
     // Evaluate a rule against JSON data by rule ID
     @PostMapping("/evaluate/{id}")
     public ResponseEntity<Boolean> evaluateRule(@PathVariable String id, @RequestBody Map<String, String> jsonData) {
-        Boolean result = false;
+        Boolean result = ruleService.evaluateRuleById(id, jsonData);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

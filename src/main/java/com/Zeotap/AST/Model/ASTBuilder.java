@@ -48,7 +48,7 @@ public class ASTBuilder {
 
 
         for (String token : tokens) {
-            System.out.println("token - "+token);
+            // System.out.println("token - "+token);
             if (token.equals("(")) {
                 operators.push(token);
             } else if (token.equals(")")) {
@@ -112,7 +112,7 @@ public class ASTBuilder {
 
   
 
-    public static boolean evaluateNode(ASTNode node, Map<String, Object> data) {
+    public static boolean evaluateNode(ASTNode node, Map<String, String> data) {
         if ("operator".equals(node.getType())) {
             boolean leftEval = evaluateNode(node.getLeft(), data);
             boolean rightEval = evaluateNode(node.getRight(), data);
@@ -124,7 +124,7 @@ public class ASTBuilder {
             };
         } else if ("operand".equals(node.getType())) {
             String condition = node.getCondition().trim();
-    
+            
             // Regex to capture left operand, operator, and right operand with flexible spacing
             Pattern pattern = Pattern.compile("(.+?)\\s*(==|!=|>=|<=|>|<)\\s*(.+)");
             Matcher matcher = pattern.matcher(condition);
@@ -142,12 +142,17 @@ public class ASTBuilder {
                 throw new IllegalArgumentException("Data key not found: " + left);
             }
     
-            Object leftValue = data.get(left);
+            String leftValue = data.get(left);
     
+            // Check if the right side is numeric to decide between numeric or string comparison
             if (right.matches("-?\\d+(\\.\\d+)?")) { // Numeric comparison
                 double rightValue = Double.parseDouble(right);
-                if (!(leftValue instanceof Number)) return false;
-                double leftNum = ((Number) leftValue).doubleValue();
+                double leftNum;
+                try {
+                    leftNum = Double.parseDouble(leftValue); // Convert leftValue to double
+                } catch (NumberFormatException e) {
+                    return false; // Left value is not a number, so return false for numeric comparisons
+                }
     
                 return switch (operator) {
                     case "==" -> leftNum == rightValue;
